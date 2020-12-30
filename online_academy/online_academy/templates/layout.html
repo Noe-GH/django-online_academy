@@ -1,0 +1,24 @@
+{% load static from static %}
+{% load course_extras %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>{% block title %}{% endblock %}</title>
+        <link rel="stylesheet" href="{% static 'css/layout.css' %}">
+        {% block static %} {% endblock %}
+    </head>
+    <body>
+        <div class="site-container">
+            <nav>
+                <a href="{% url 'home' %}">Online Academy</a>
+                <a href="{% url 'courses:courses_list' %}">Cursos</a>
+            </nav>
+            <p>Don't miss our latest course: {% last_course %}</p>
+            {% block content %}{% endblock %}    
+        </div>
+        
+    </body>
+
+</html>
